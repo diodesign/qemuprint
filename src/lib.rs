@@ -4,7 +4,7 @@
  * in a Qemu virt machine, and print to the serial port, which will
  * appear in the terminal if you use the -nographic Qemu switch. For example:
  * 
- *  qemu-system-riscv64 -bios none -nographic -machine virt -kernel <path to kernel>
+ * $ qemu-system-riscv64 -bios none -nographic -machine virt -kernel <path to kernel>
  * 
  * (c) Chris Williams, 2020.
  *
@@ -14,7 +14,7 @@
 #![no_std]
 use core::fmt;
 
-const QemuVirtSerialPort: usize = 0x10000000;
+const QEMU_VIRT_SERIAL_PORT: usize = 0x10000000;
 
 #[macro_export]
 macro_rules! println
@@ -44,7 +44,7 @@ impl fmt::Write for UartWriter
     {
         for c in s.bytes()
         {
-            unsafe { *(QemuVirtSerialPort as *mut u8) = c };
+            unsafe { *(QEMU_VIRT_SERIAL_PORT as *mut u8) = c };
         }
         Ok(())
     }
