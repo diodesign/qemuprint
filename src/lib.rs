@@ -30,7 +30,7 @@ macro_rules! print
     ({
         use core::fmt::Write;
         {
-            unsafe { $crate::serial::QEMUUART.write_fmt(format_args!($($arg)*)).unwrap(); }
+            unsafe { $crate::QEMUUART.write_fmt(format_args!($($arg)*)).unwrap(); }
         }
     });
 }

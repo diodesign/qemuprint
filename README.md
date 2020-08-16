@@ -4,6 +4,20 @@ This library prints text to the [Qemu](https://www.qemu.org/) emulator's serial 
 
 If you wish to use this for your own project, let me know and I'll tidy up the documentation and API.
 
+### Usage
+
+Two macros are provided: `println` and `print` that map to the std library's [`println`](https://doc.rust-lang.org/std/macro.println.html) and [`print`](https://doc.rust-lang.org/std/macro.print.html). For example...
+
+```
+qemuprint::println!("Hello, world. Testing {} {} {}", 1, 2, 3);
+```
+
+...will print to the Qemu terminal:
+
+```
+Hello, world. Testing 1 2 3
+```
+
 ### Contact and code of conduct <a name="contact"></a>
 
 Please [email](mailto:diosix@tuta.io) Diosix project lead Chris Williams if you have any questions or issues to raise, wish to get involved, have source to contribute, or have found a security flaw. You can, of course, submit pull requests or raise issues via GitHub, though please consider disclosing security-related matters privately. Please also observe the Diosix project's [code of conduct](https://diosix.org/docs/conduct.html) if you wish to participate.
